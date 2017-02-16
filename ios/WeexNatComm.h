@@ -1,5 +1,5 @@
 //
-//  NatWeexComm.h
+//  WeexNatComm.h
 //
 //  Created by huangyake on 17/1/7.
 //  Copyright © 2017 Nat. All rights reserved.
@@ -17,7 +17,7 @@
 
 @end
 
-@interface NatWeexComm : NSObject<NatCommPro>
+@interface WeexNatComm : NSObject<NatCommPro>
 
 
 @end

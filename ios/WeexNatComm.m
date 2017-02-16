@@ -1,15 +1,15 @@
 //
-//  NatWeexComm.m
+//  WeexNatComm.m
 //
 //  Created by huangyake on 17/1/7.
 //  Copyright © 2017 Nat. All rights reserved.
 //
 
-#import "NatWeexComm.h"
+#import "WeexNatComm.h"
 #import "NatComm.h"
 
 
-@implementation NatWeexComm
+@implementation WeexNatComm
 WX_EXPORT_METHOD(@selector(call::))
 WX_EXPORT_METHOD(@selector(mail:::))
 WX_EXPORT_METHOD(@selector(sms:::))
