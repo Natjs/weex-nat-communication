@@ -1,17 +1,20 @@
 {
-  "name": "${nat-communication}",
+  "name": "nat-communication",
   "version": "1.0.0",
-  "description": "Weex Plugin-${nat-communication}",
+  "description": "Nat.js module: Communication (call phone, send short message, send email)",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
+    "Nat",
+    "call",
+    "sms",
+    "mail",
     "Weex",
     "Plugin",
-    "commponent",
     "module",
-    "handle",
-    "weexpack"
+    "handle"
   ],
-  "author": ""
+  "author": "Acathur",
+  "license": "MIT"
 }
