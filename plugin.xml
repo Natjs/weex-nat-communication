@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>headers
+<?xml version="1.0" encoding="UTF-8"?>
 
 <plugin xmlns="http://www.w3.org/ns/widgets"
     id="nat-communication"
     version="0.1.0">
     <name>nat-communication</name>
-    <description>nat communication</description>
+    <description>Nat.js module: Communication (call phone, send short message, send email)</description>
     <license>MIT</license>
-    <keywords>weex,plugin,nat,natjs,</keywords>
-    <repo>https://github.com/Natjs/weex-nat-communication.git</repo>
-    <issue>https://github.com/Natjs/weex-nat-communication/issues</issue>
+    <keywords>weex,plugin,nat,natjs,communication,call,sms,email</keywords>
+    <repo>https://github.com/natjs/weex-nat-communication.git</repo>
+    <issue>https://github.com/natjs/weex-nat-communication/issues</issue>
     
      <!-- ios -->
      <platform name="ios">
@@ -27,6 +27,24 @@
 
      <!-- android -->
      <platform name="android">
+        <config-file target="config.xml" parent="/*">
+             <feature name="Communication">
+                 <param name="category" value="module" />
+                 <param name="android-package" value="com.nat.weex.Communication" />
+                 <param name="api" value="nat/communication" />
+             </feature>
+        </config-file>
+        
+        <config-file target="AndroidManifest.xml" parent="/*">
+             <uses-permission android:name="android.permission.CALL_PHONE" />
+        </config-file>
+
+        <source-file
+             src="android/Communication.java"
+            target-dir="src/com/alibaba/weex/nat/Communication.java" />
+
+        <framework src="com.nat:communication:1.0.2" />
+        <framework src="com.nat:permission:1.0.1" />
      </platform>
 
 </plugin>
