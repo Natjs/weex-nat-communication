@@ -1,6 +1,6 @@
 {
   "name": "nat-communication",
-  "version": "1.0.0",
+  "version": "0.1.3",
   "description": "Nat.js module: Communication (call phone, send short message, send email)",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

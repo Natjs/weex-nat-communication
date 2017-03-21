@@ -1,12 +1,15 @@
 # nat-communication
 
+- [Documentation](http://natjs.com/#/#communication)
+- [Github](https://github.com/natjs/weex-nat-communication)
+
 ## Installation
 ```
 weexpack plugin add nat-communication
 ```
 
 ```
-npm install weex-nat --save
+npm install natjs --save
 ```
 
 ## Usage
@@ -15,7 +18,7 @@ Use in weex file (.we)
 
 ```html
 <script>
-import 'Nat' from 'weex-nat'
+import 'Nat' from 'natjs'
 
 // make a phone call
 Nat.call('415-736-0000')
