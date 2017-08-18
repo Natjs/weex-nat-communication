@@ -1,15 +1,16 @@
 //
-//  WeexNatComm.m
+//  WeexNatCommunication.m
 //
 //  Created by huangyake on 17/1/7.
-//  Copyright © 2017 Nat. All rights reserved.
+//  Copyright © 2017 Instapp. All rights reserved.
 //
 
-#import "WeexNatComm.h"
+#import "WeexNatCommunication.h"
 #import "NatComm.h"
 
 
-@implementation WeexNatComm
+@implementation WeexNatCommunication
+@synthesize weexInstance;
 WX_EXPORT_METHOD(@selector(call::))
 WX_EXPORT_METHOD(@selector(mail:::))
 WX_EXPORT_METHOD(@selector(sms:::))
