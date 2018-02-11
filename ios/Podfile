@@ -1,0 +1,13 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '7.0'
+#inhibit_all_warnings!
+
+def common
+	pod 'WeexSDK'
+	pod 'WeexPluginLoader'
+	pod 'NatCommunication', '0.0.2'
+end
+
+target 'WeexNatCommunication' do
+    common
+end

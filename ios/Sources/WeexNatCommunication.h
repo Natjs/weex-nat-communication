@@ -8,15 +8,14 @@
 #import <Foundation/Foundation.h>
 #import <WeexSDK/WeexSDK.h>
 
-@protocol NatCommPro <WXModuleProtocol>
+@protocol NatCommunicationPro <WXModuleProtocol>
+
 - (void)call:(NSString *)phone :(WXModuleCallback)callback;
 - (void)mail:(NSArray *)mail :(NSDictionary*)params :(WXModuleCallback)callback;
 - (void)sms:(NSArray *)phone :(NSString *)text :(WXModuleCallback)callback;
 
-
 @end
 
-@interface WeexNatCommunication : NSObject<NatCommPro>
-
+@interface WeexNatCommunication : NSObject<NatCommunicationPro>
 
 @end

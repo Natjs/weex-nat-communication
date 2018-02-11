@@ -6,23 +6,24 @@
 //
 
 #import "WeexNatCommunication.h"
-#import "NatComm.h"
-
+#import <WeexPluginLoader/WeexPluginLoader.h>
+#import <NatCommunication/NatCommunication.h>
 
 @implementation WeexNatCommunication
 @synthesize weexInstance;
+
+WX_PlUGIN_EXPORT_MODULE(nat/communication, WeexNatCommunication)
 WX_EXPORT_METHOD(@selector(call::))
 WX_EXPORT_METHOD(@selector(mail:::))
 WX_EXPORT_METHOD(@selector(sms:::))
 
-
 - (void)call:(NSString *)phone :(WXModuleCallback)callback{
-    [[NatComm singletonManger] call:phone :^(id error,id result) {
+    [[NatCommunication singletonManger] call:phone :^(id error,id result) {
         if (error) {
             if (callback) {
                 callback(error);
             }
-        }else{
+        } else {
             if (callback) {
                 callback(result);
             }
@@ -32,12 +33,12 @@ WX_EXPORT_METHOD(@selector(sms:::))
 
 
 - (void)mail:(NSArray *)mail :(NSDictionary*)params :(WXModuleCallback)callback{
-    [[NatComm singletonManger] mail:mail :params :^(id error,id result) {
+    [[NatCommunication singletonManger] mail:mail :params :^(id error,id result) {
         if (error) {
             if (callback) {
                 callback(error);
             }
-        }else{
+        } else {
             if (callback) {
                 callback(result);
             }
@@ -46,12 +47,12 @@ WX_EXPORT_METHOD(@selector(sms:::))
 }
 
 - (void)sms:(NSArray *)phone :(NSString *)text :(WXModuleCallback)callback{
-    [[NatComm singletonManger] sms:phone :text :^(id error,id result) {
+    [[NatCommunication singletonManger] sms:phone :text :^(id error,id result) {
         if (error) {
             if (callback) {
                 callback(error);
             }
-        }else{
+        } else {
             if (callback) {
                 callback(result);
             }
