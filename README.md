@@ -1,6 +1,6 @@
 # nat-communication
 
-- [Documentation](http://natjs.com/#/#communication)
+- [Documentation](http://natjs.com/#/reference/communication)
 - [Github](https://github.com/natjs/weex-nat-communication)
 
 ## Installation

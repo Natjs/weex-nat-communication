@@ -1,29 +1,35 @@
-package com.nat.weex;
+package com.instapp.nat.weex.plugin.Communication;
 
 import android.Manifest;
 import android.app.Activity;
 
-import com.nat.communication.CommunicationModule;
-import com.nat.communication.Constant;
-import com.nat.communication.ModuleResultListener;
-import com.nat.communication.Util;
-import com.nat.permission.PermissionChecker;
+import com.alibaba.weex.plugin.annotation.WeexModule;
+import com.instapp.nat.communication.CommunicationModule;
+import com.instapp.nat.communication.Constant;
+import com.instapp.nat.communication.ModuleResultListener;
+import com.instapp.nat.communication.Util;
+import com.instapp.nat.permission.PermissionChecker;
 
 import com.taobao.weex.annotation.JSMethod;
 import com.taobao.weex.bridge.JSCallback;
 import com.taobao.weex.common.WXModule;
 
 import java.util.HashMap;
+import java.util.Locale;
 
 /**
  * Created by Acathur on 17/2/16.
  * Copyright (c) 2017 Instapp. All rights reserved.
  */
 
+@WeexModule(name = "nat/communication")
 public class Communication extends WXModule {
 
     String mCallNumber;
     JSCallback mCallCallback;
+
+    String lang = Locale.getDefault().getLanguage();
+    Boolean isChinese = lang.startsWith("zh");
 
     @JSMethod
     public void call(String number, final JSCallback jsCallback){
@@ -31,13 +37,18 @@ public class Communication extends WXModule {
 
         if (permAllow) {
             HashMap<String, String> dialog = new HashMap<>();
-            dialog.put("title", "权限申请");
-            dialog.put("message", "请允许拨打电话");
+            if (isChinese) {
+                dialog.put("title", "权限申请");
+                dialog.put("message", "请允许应用拨打电话");
+            } else {
+                dialog.put("title", "Permission Request");
+                dialog.put("message", "Please allow the app to make calls");
+            }
             
             mCallNumber = number;
             mCallCallback = jsCallback;
 
-            PermissionChecker.requestPermissions((Activity) mWXSDKInstance.getContext(), dialog, new com.nat.permission.ModuleResultListener() {
+            PermissionChecker.requestPermissions((Activity) mWXSDKInstance.getContext(), dialog, new com.instapp.nat.permission.ModuleResultListener() {
                 @Override
                 public void onResult(Object o) {
                     if ((boolean)o == true) jsCallback.invoke(Util.getError(Constant.CALL_PHONE_PERMISSION_DENIED, Constant.CALL_PHONE_PERMISSION_DENIED_CODE));
